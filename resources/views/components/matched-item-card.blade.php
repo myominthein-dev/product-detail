@@ -1,4 +1,4 @@
-<div class="p-3 rounded-lg border border-gray-300">
+<div class="p-3 rounded-lg border min-w-1/2 lg:min-w-1/3 xl:min-w-1/2 border-gray-300">
     <div class="flex">
         <img class="h-24" src="{{ asset('/matched-images/'.$imgName) }}" alt="">
         <div class="px-3 flex flex-col justify-between">

@@ -190,7 +190,7 @@
             {{-- product info   --}}
 
             <div class=" flex flex-col ">
-                <h1 class="text-2xl font-semibold">Double Deck Convection Oven - 208V, 1 Phase, 11 kW </h1>
+                <h1 class="text-xl lg:text-2xl font-semibold">Double Deck Convection Oven - 208V, 1 Phase, 11 kW </h1>
                 <div class="flex items-center mr-4 my-2">
 
 
@@ -216,7 +216,7 @@
                             <div class="flex items-center">
                                 <div>
                                     <span class="text-sm text-gray-500 line-through">{{ number_format($product['price'], 2) }} MMK</span>
-                                    <h4 class="text-3xl font-bold text-sky-700 my-1">{{ number_format($product['price'] * 0.75, 2) }} MMK</h4>
+                                    <h4 class="text-xl lg:text-3xl font-bold text-sky-700 my-1">{{ number_format($product['price'] * 0.75, 2) }} MMK</h4>
                                     <span class="text-sm text-gray-600">Save {{ number_format($product['price'] * 0.25, 2) }} MMK</span>
                                 </div>
                                 <div class="absolute -right-2 -top-2 bg-sky-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-md transform rotate-3">
@@ -227,25 +227,25 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>Limited time offer - Spring Sale ends in <span class="font-semibold" id="price-countdown">3d 00h 00m 00s</span></span>
+                                <span class="text-xs lg:text-sm">Limited time offer - Spring Sale ends in <span class="font-semibold" id="price-countdown">3d 00h 00m 00s</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-sm font-semibold tracking-wide">
+                <p class=" text-[14px] lg:text-sm font-semibold tracking-wide">
                     This Cooking Performance Group FEC-200-BK double deck standard depth full size electric convection oven
                     is a valuable asset to any commercial kitchen.
                 </p>
 
                 <div class="flex items-center my-5 ">
                     <div class="mr-4 flex items-center border border-gray-300 rounded-md">
-                        <button class="px-3 py-2 cursor-pointer rounded-l-md hover:bg-gray-100" id="decrease-quantity">
+                        <button class="px-2 py-2 cursor-pointer rounded-l-md hover:bg-gray-100" id="decrease-quantity">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                             </svg>
                         </button>
-                        <span class="px-4 py-2" id="quantity">1</span>
+                        <span class=" px-3 lg:px-4 py-2 text-sm lg:text-lg" id="quantity">1</span>
                         <button class="px-3 py-2 cursor-pointer rounded-r-md hover:bg-gray-100" id="increase-quantity">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -254,7 +254,7 @@
                         </button>
                     </div>
                     <button
-                        class="mr-2 cursor-pointer flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium py-2 px-4 rounded-md flex items-center justify-center">
+                        class="mr-3 cursor-pointer text-sm lg:text-lg flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium px-2 py-2 lg:px-4 rounded-md flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -263,7 +263,7 @@
                         Add to Cart
                     </button>
                     <button
-                        class="border cursor-pointer border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-md">
+                        class="border cursor-pointer text-sm lg:text-lg border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-md">
                         Buy Now
                     </button>
                 </div>
@@ -290,7 +290,9 @@
                     </span>
                 </div>
 
-                <div class="space-y-2">
+                {{-- product features --}}
+
+                <div class="space-y-2 hidden xl:block">
                     <h3 class="font-medium">Key Features:</h3>
                     <ul class="space-y-1">
 
@@ -342,9 +344,10 @@
 
                 {{-- matched items --}}
 
-                <h4 class="mt-5 mb-3 text-lg font-semibold">Work With : </h4>
+              <div class="mt-5 hidden xl:block">
+                <h4 class="mb-3 text-lg font-semibold">Work With : </h4>
 
-                <div class=" grid gap-2 grid-cols-2">
+                <div class=" flex pb-2 gap-2 overflow-x-scroll ">
 
                     @include('components.matched-item-card', [
                         'imgName' => 'matched_1.jpg',
@@ -370,10 +373,96 @@
                         'price' => '500,000',
                     ])
                 </div>
+              </div>
 
             </div>
 
         </div>
+
+        {{-- small screen features --}}
+
+        <div class="space-y-2  xl:hidden">
+            <h3 class="font-medium">Key Features:</h3>
+            <ul class="space-y-1 grid grid-cols-2 gap-x-4">
+
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Double stack design includes 2 ovens for optimal space efficiency; stacking kit
+                        included</span>
+                </li>
+
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Each oven features full size cavity that houses 3 adjustable wire racks</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Temperature range from 150 to 500 degrees Fahrenheit per oven</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Independent glass doors; stainless steel exterior; porcelain interior floors and
+                        sides</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>208V, 1 Phase, 11 kW</span>
+                </li>
+            </ul>
+        </div>
+
+        {{-- small screen matched items --}}
+        <div class="mt-5  xl:hidden">
+            <h4 class="mb-3 text-lg font-semibold">Work With : </h4>
+
+            <div class=" flex pb-2 gap-2 overflow-x-scroll ">
+
+                @include('components.matched-item-card', [
+                    'imgName' => 'matched_1.jpg',
+                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
+                    'price' => '500,000',
+                ])
+
+                @include('components.matched-item-card', [
+                    'imgName' => 'matched_1.jpg',
+                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
+                    'price' => '500,000',
+                ])
+
+                @include('components.matched-item-card', [
+                    'imgName' => 'matched_1.jpg',
+                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
+                    'price' => '500,000',
+                ])
+
+                @include('components.matched-item-card', [
+                    'imgName' => 'matched_1.jpg',
+                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
+                    'price' => '500,000',
+                ])
+            </div>
+          </div>
+        {{-- tab start --}}
 
         <div class="  mt-5">
 
@@ -464,6 +553,7 @@
 
                     {{-- user review --}}
 
+                    <h3 class="my-5 text-lg font-semibold text-gray-700">Users' Reviews</h3>
                     <div class="grid grid-cols-2 gap-5 ">
                         @for ($r = 0; $r <= 5 ; $r++)
                         <div class="border border-gray-300 p-4 rounded-lg">

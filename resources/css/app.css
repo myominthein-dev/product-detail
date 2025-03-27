@@ -12,5 +12,5 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 .container {
-    @apply max-w-[1450px] mx-auto
+    @apply max-w-[1450px] mx-auto px-5 
 }
