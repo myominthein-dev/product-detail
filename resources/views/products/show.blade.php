@@ -1,64 +1,3 @@
-@php
-    $ovenSpecs = [
-        'Quantity' => '1/Each',
-        'Shipping Weight' => '1105 lb.',
-        'Width' => '38 Inches',
-        'Depth' => '41 1/2 Inches',
-        'Height' => '63 1/2 Inches',
-        'Interior Width' => '29 Inches',
-        'Interior Depth' => '22 1/4 Inches',
-        'Interior Height' => '20 Inches',
-        'Amps' => '53 Amps',
-        'Hertz' => '60 Hz',
-        'Phase' => '1 Phase',
-        'Voltage' => '208 Volts',
-        'Wattage' => '11 Kilowatts',
-        'Amps per Cavity' => '53 Amps',
-        'Control Type' => 'Dial',
-        'Door Type' => 'Glass',
-        'Installation Type' => 'Freestanding',
-        'Kw per Cavity' => '11 Kw',
-        'Maximum Temperature' => '500 Degrees F',
-        'Number of Chambers' => '2 Chambers',
-        'Number of Decks' => 'Double',
-        'Number of Doors' => '4 Doors',
-        'Number of Racks' => '6 Racks',
-        'Oven Interior Style' => 'Standard Depth',
-        'Plug Type' => 'Hardwire',
-        'Power Type' => 'Electric',
-        'Size' => 'Full Size',
-        'Temperature Range' => '150 - 500 Degrees F',
-    ];
-
-    $starDisplay = [
-        [
-            'star-count' => 5,
-            'percentage' => 85,
-        ],
-        [
-            'star-count' => 4,
-            'percentage' => 10,
-        ],
-        [
-            'star-count' => 3,
-            'percentage' => 3,
-        ],
-        [
-            'star-count' => 2,
-            'percentage' => 1,
-        ],
-        [
-            'star-count' => 1,
-            'percentage' => 1,
-        ],
-    ];
-
-   
-     $product = [
-        'price' => 24000000,
-     ]
-
-@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -83,7 +22,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                             </svg>
-                            <span>FREE SHIPPING on orders over $1000!</span>
+                            <span>FREE SHIPPING on orders over 1,000,000 MMK</span>
                         </span>
                         <span class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,7 +70,7 @@
 
         {{-- bread crumb start --}}
 
-        <nav class="flex items-center text-sm text-gray-500 mb-6">
+        <nav class="flex items-center text-[10px] sm:text-sm text-gray-500 mb-6">
             <a href="/" class="flex items-center hover:text-sky-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -149,12 +88,12 @@
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
-            <span class="text-gray-800 font-medium">Double Deck Convection Oven - 208V, 1 Phase, 11 kW</span>
+            <span class="text-gray-800  font-semibold line-clamp-1">{{ $product['name'] }}</span>
         </nav>
 
         {{-- product detail start --}}
 
-        <div class="grid gap-5 grid-cols-2">
+        <div class="grid gap-5 md:grid-cols-2">
 
             {{-- product image lightbox  start --}}
 
@@ -162,26 +101,17 @@
                 {{-- main image start --}}
 
                 <div id="main-image">
-                    <img class="w-full rounded-xl" src="{{ asset('/oven-images/oven_1.jpg') }}" alt="">
+                    <img class="w-full rounded-xl" src="{{ asset('/oven-images/'.$product['images'][0]) }}" alt="">
                 </div>
 
                 {{-- sub images start --}}
                 <div class="grid grid-cols-5 gap-2 py-2">
-                    <button>
-                        <img class="rounded-lg" src="{{ asset('/oven-images/oven_1.jpg') }}" alt="">
-                    </button>
-                    <button>
-                        <img class="rounded-lg" src="{{ asset('/oven-images/oven_2.jpg') }}" alt="">
-                    </button>
-                    <button>
-                        <img class="rounded-lg" src="{{ asset('/oven-images/oven_3.jpg') }}" alt="">
-                    </button>
-                    <button>
-                        <img class="rounded-lg" src="{{ asset('/oven-images/oven_4.jpg') }}" alt="">
-                    </button>
-                    <button>
-                        <img class="rounded-lg" src="{{ asset('/oven-images/oven_5.jpg') }}" alt="">
-                    </button>
+
+                    @foreach ($product['images'] as $imgeName)
+                        <button>
+                            <img class="rounded-lg" src="{{ asset('/oven-images/'.$imgeName) }}" alt="">
+                        </button>
+                    @endforeach   
                 </div>
             </div>
 
@@ -190,7 +120,7 @@
             {{-- product info   --}}
 
             <div class=" flex flex-col ">
-                <h1 class="text-xl lg:text-2xl font-semibold">Double Deck Convection Oven - 208V, 1 Phase, 11 kW </h1>
+                <h1 class="text-xl lg:text-2xl font-semibold"> {{ $product['name'] }} </h1>
                 <div class="flex items-center mr-4 my-2">
 
 
@@ -227,12 +157,12 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span class="text-xs lg:text-sm">Limited time offer - Spring Sale ends in <span class="font-semibold" id="price-countdown">3d 00h 00m 00s</span></span>
+                                <span class=" text-[11px] sm:text-xs lg:text-sm">Limited time offer - Spring Sale ends in <span class="font-semibold" id="price-countdown">3d 00h 00m 00s</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class=" text-[14px] lg:text-sm font-semibold tracking-wide">
+                <p class=" text-[14px] text-gray-600 lg:text-sm font-semibold tracking-wide">
                     This Cooking Performance Group FEC-200-BK double deck standard depth full size electric convection oven
                     is a valuable asset to any commercial kitchen.
                 </p>
@@ -245,7 +175,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                             </svg>
                         </button>
-                        <span class=" px-3 lg:px-4 py-2 text-sm lg:text-lg" id="quantity">1</span>
+                        <span class=" px-3 lg:px-4 py-2 text-[11px] sm:text-sm lg:text-lg" id="quantity">1</span>
                         <button class="px-3 py-2 cursor-pointer rounded-r-md hover:bg-gray-100" id="increase-quantity">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -254,7 +184,7 @@
                         </button>
                     </div>
                     <button
-                        class="mr-3 cursor-pointer text-sm lg:text-lg flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium px-2 py-2 lg:px-4 rounded-md flex items-center justify-center">
+                        class="mr-3 cursor-pointer text-[11px] sm:text-sm lg:text-lg flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium px-2 py-2 lg:px-4 rounded-md flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -263,7 +193,7 @@
                         Add to Cart
                     </button>
                     <button
-                        class="border cursor-pointer text-sm lg:text-lg border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-md">
+                        class="border cursor-pointer text-[11px] sm:text-sm lg:text-lg border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-md">
                         Buy Now
                     </button>
                 </div>
@@ -282,7 +212,7 @@
                     <span>Availability : </span>
                     <span>
                         @if (true)
-                            In Stock ( 10 units )
+                            In Stock ( {{ $product['available_stocks'] }} units )
                         @else
                             Out of stock
                         @endif
@@ -296,82 +226,32 @@
                     <h3 class="font-medium">Key Features:</h3>
                     <ul class="space-y-1">
 
+                        @foreach ($product['key_features'] as $feature)
                         <li class="flex items-start">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>Double stack design includes 2 ovens for optimal space efficiency; stacking kit
-                                included</span>
+                            <span>{{ $feature }}</span>
                         </li>
-
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Each oven features full size cavity that houses 3 adjustable wire racks</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Temperature range from 150 to 500 degrees Fahrenheit per oven</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Independent glass doors; stainless steel exterior; porcelain interior floors and
-                                sides</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>208V, 1 Phase, 11 kW</span>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
 
                 {{-- matched items --}}
 
-              <div class="mt-5 hidden xl:block">
+              <div class="mt-5 hidden lg:block">
                 <h4 class="mb-3 text-lg font-semibold">Work With : </h4>
 
                 <div class=" flex pb-2 gap-2 overflow-x-scroll ">
 
-                    @include('components.matched-item-card', [
-                        'imgName' => 'matched_1.jpg',
-                        'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                        'price' => '500,000',
-                    ])
+                    @foreach ($product['matched_items'] as $item)
+                     <x-matched-item-card :imgName="$item['image']" :itemName="$item['name']" :price="$item['price']" />
+                    @endforeach
+                   
 
-                    @include('components.matched-item-card', [
-                        'imgName' => 'matched_1.jpg',
-                        'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                        'price' => '500,000',
-                    ])
-
-                    @include('components.matched-item-card', [
-                        'imgName' => 'matched_1.jpg',
-                        'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                        'price' => '500,000',
-                    ])
-
-                    @include('components.matched-item-card', [
-                        'imgName' => 'matched_1.jpg',
-                        'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                        'price' => '500,000',
-                    ])
+                    
                 </div>
               </div>
 
@@ -383,7 +263,7 @@
 
         <div class="space-y-2  xl:hidden">
             <h3 class="font-medium">Key Features:</h3>
-            <ul class="space-y-1 grid grid-cols-2 gap-x-4">
+            <ul class="space-y-1 grid sm:grid-cols-2 gap-x-4">
 
                 <li class="flex items-start">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-600 mr-2 mt-0.5 flex-shrink-0"
@@ -432,34 +312,16 @@
         </div>
 
         {{-- small screen matched items --}}
-        <div class="mt-5  xl:hidden">
+        <div class="mt-5  lg:hidden">
             <h4 class="mb-3 text-lg font-semibold">Work With : </h4>
 
             <div class=" flex pb-2 gap-2 overflow-x-scroll ">
 
-                @include('components.matched-item-card', [
-                    'imgName' => 'matched_1.jpg',
-                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                    'price' => '500,000',
-                ])
+                @foreach ($product['matched_items'] as $item)
+                <x-matched-item-card :imgName="$item['image']" :itemName="$item['name']" :price="$item['price']" />
+               @endforeach
 
-                @include('components.matched-item-card', [
-                    'imgName' => 'matched_1.jpg',
-                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                    'price' => '500,000',
-                ])
-
-                @include('components.matched-item-card', [
-                    'imgName' => 'matched_1.jpg',
-                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                    'price' => '500,000',
-                ])
-
-                @include('components.matched-item-card', [
-                    'imgName' => 'matched_1.jpg',
-                    'itemName' => "Cooking Performance Group 351110578 Oven Rack - 28\" x 20 5/8\"",
-                    'price' => '500,000',
-                ])
+                
             </div>
           </div>
         {{-- tab start --}}
@@ -470,13 +332,13 @@
 
             <div>
                 <ul class="flex text-sm font-semibold border-b text-gray-600 border-b-gray-300 gap-4">
-                    <li tab-data="spec-tab" class="tab-nav border-b-2 p-2 border-b-gray-400 cursor-pointer">
+                    <li tab-data="spec-tab" class="tab-nav border-b-2 ">
                         Specifications
                     </li>
-                    <li tab-data='review-tab' class="tab-nav p-2 border-b-2 border-b-transparent cursor-pointer">
+                    <li tab-data='review-tab' class="tab-nav border-b-2 border-b-transparent">
                         Reviews
                     </li>
-                    <li tab-data='shipping-tab' class="tab-nav p-2 border-b-2 border-b-transparent cursor-pointer">
+                    <li tab-data='shipping-tab' class="tab-nav border-b-2 border-b-transparent">
                         Shipping & Returns
                     </li>
                 </ul>
@@ -488,7 +350,7 @@
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($ovenSpecs as $key => $value)
+                                @foreach ($product['specifications'] as $key => $value)
                                     <tr>
                                         <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900 w-1/3">
                                             {{ $key }}</td>
@@ -503,7 +365,7 @@
                 <div id="review-tab" class="h-full tab-content hidden">
 
                     {{-- star show --}}
-                    <div class="grid grid-cols-2 gap-5 mb-5">
+                    <div class="grid md:grid-cols-2 gap-5 mb-5">
                         <div class="border p-4 rounded-lg border-gray-300">
                             <div class="flex items-center"> <span class="text-xl mr-2 font-semibold">4.8</span>
                                 @for ($i = 1; $i <= 5; $i++)
@@ -520,7 +382,7 @@
 
                             <p class="my-3">Based on 124 reviews</p>
 
-                            @foreach ($starDisplay as $star)
+                            @foreach ($product['starDisplay'] as $star)
                                 <div class="flex items-center">
                                     <div class="w-12 text-sm">{{ $star['star-count'] }} stars</div>
                                     <div class="h-2 mx-2 flex-1 bg-gray-200 rounded-full overflow-hidden">
@@ -554,41 +416,40 @@
                     {{-- user review --}}
 
                     <h3 class="my-5 text-lg font-semibold text-gray-700">Users' Reviews</h3>
-                    <div class="grid grid-cols-2 gap-5 ">
-                        @for ($r = 0; $r <= 5 ; $r++)
-                        <div class="border border-gray-300 p-4 rounded-lg">
-                            <div class="flex items-center">
-                                <div
-                                    class="w-12 h-12 flex items-center justify-center text-sm font-semibold text-gray-500 bg-gray-300 rounded-full">
-                                    John</div>
-                                <div class="ml-3">
-                                    <h4 class="font-semibold">John Doe</h4>
-                                    <p class="text-sm text-gray-500 flex">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="{{ $i <= 7 ? 'currentColor' : 'none' }}"
-                                                class="w-5 h-5 {{ $i <= 5 ? 'text-amber-500' : 'text-gray-300 stroke-gray-400' }}">
-                                                <path fill-rule="evenodd"
-                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        @endfor
-                                    </p>
-                                </div>
-                                <p class=" ml-auto text-gray-500 text-sm ">March 15, 2023</p>
+                    <div class="grid md:grid-cols-2 gap-5 ">
+                       @foreach ($product['reviews'] as $review)
+                       <div class="border border-gray-300 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center text-sm font-semibold text-gray-500 bg-gray-300 overflow-hidden text-nowrap rounded-full">
+                                {{ $review['user'] }}</div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold">{{ $review['user'] }}</h4>
+                                <p class="text-sm text-gray-500 flex">
+                                    @for ($i = 1; $i <=  $review['rating']  ; $i++)
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            fill="{{ $i <= $review['rating'] ? 'currentColor' : 'none' }}"
+                                            class="w-5 h-5 {{ $i <= $review['rating'] ? 'text-amber-500' : 'text-gray-300 stroke-gray-400' }}">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    @endfor
+                                </p>
                             </div>
-
-                            <p class="text-gray-500 text-sm mt-3">
-                                We've been using this oven in our hotel kitchen for 6 months now and it has exceeded our expectations. The temperature control is precise and the energy efficiency has noticeably reduced our utility bills.
-
-                            </p>
+                            <p class=" ml-auto text-gray-500 text-sm ">{{ $review['date'] }}</p>
                         </div>
-                        @endfor
+
+                        <p class="text-gray-500 text-sm mt-3">
+                           {{ $review['comment'] }}
+                        </p>
+                       </div>
+                       @endforeach
                     </div>
                     
                 </div>
                 <div id="shipping-tab" class="h-full  tab-content hidden ">
-                    <div class="grid grid-cols-2 gap-5">
+                    <div class="grid md:grid-cols-2 gap-5">
                         <div class="border border-gray-300 p-4 rounded-lg">
                             <h3 class="text-lg font-semibold">Shipping</h3>
                             <p class="text-sm text-gray-500 my-3">We offer free shipping on orders over 1,000,000 MMK. Orders
@@ -606,6 +467,17 @@
                     </div>
                 </div>
             </div>
+
+             <!-- Related Products -->
+        <div class="my-5">
+            <h2 class="text-xl font-semibold mb-6">Related Products</h2>
+           
+            <div class="flex overflow-x-scroll gap-5 py-5">
+                @foreach ($product['relatedProducts'] as $relatedProduct)
+                    <x-related-item-card :img="$relatedProduct['image']" :name="$relatedProduct['name']" :stocks="$relatedProduct['stocks']" />
+                @endforeach
+            </div>
+        </div>
     </section>
 @endsection
 
@@ -644,7 +516,7 @@
                 // Set the date we're counting down to (3 days from now)
                 const now = new Date();
                 const countdownDate = new Date();
-                countdownDate.setDate(now.getDate() + 3);
+                countdownDate.setDate(now.getDate() + 10);
                 countdownDate.setHours(23, 59, 59, 0);
                 
                 // Get current time

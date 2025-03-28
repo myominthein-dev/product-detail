@@ -1,11 +1,11 @@
-<div class="p-3 rounded-lg border min-w-1/2 lg:min-w-1/3 xl:min-w-1/2 border-gray-300">
+<div class="p-3 rounded-lg border min-w-full sm:min-w-1/2 lg:min-w-full xl:min-w-1/2 border-gray-300">
     <div class="flex">
         <img class="h-24" src="{{ asset('/matched-images/'.$imgName) }}" alt="">
-        <div class="px-3 flex flex-col justify-between">
+        <div class="px-3 flex flex-col justify-around">
             <h3 class=" text-sm font-semibold">
                 {{ $itemName }}
             </h3>
-            <p>{{ $price }} MMK</p>
+            <p>{{ $price }}MMK</p>
         </div>
     </div>
     <div class="flex items-center text-sm mt-2">
