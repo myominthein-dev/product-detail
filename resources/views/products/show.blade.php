@@ -176,7 +176,7 @@
                             </svg>
                         </button>
                         <span class=" px-3 lg:px-4 py-2 text-[11px] sm:text-sm lg:text-lg" id="quantity">1</span>
-                        <button class="px-3 py-2 cursor-pointer rounded-r-md hover:bg-gray-100" id="increase-quantity">
+                        <button class="px-2 py-2 cursor-pointer rounded-r-md hover:bg-gray-100" id="increase-quantity">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -184,7 +184,7 @@
                         </button>
                     </div>
                     <button
-                        class="mr-3 cursor-pointer text-[11px] sm:text-sm lg:text-lg flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium px-2 py-2 lg:px-4 rounded-md flex items-center justify-center">
+                        class="mr-3 cursor-pointer text-sm lg:text-lg flex-1 bg-sky-600 hover:bg-sky-700 text-white font-medium px-1 py-2 lg:px-4 rounded-md flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -193,7 +193,7 @@
                         Add to Cart
                     </button>
                     <button
-                        class="border cursor-pointer text-[11px] sm:text-sm lg:text-lg border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-md">
+                        class="border cursor-pointer text-sm lg:text-lg border-gray-300 hover:bg-gray-100 text-gray-700 font-medium py-2 px-2 rounded-md">
                         Buy Now
                     </button>
                 </div>
