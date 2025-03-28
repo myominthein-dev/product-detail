@@ -469,8 +469,8 @@
             </div>
 
              <!-- Related Products -->
-        <div class="my-5">
-            <h2 class="text-xl font-semibold mb-6">Related Products</h2>
+        <div class="my-5 border-t pt-5 border-t-gray-300">
+            <h2 class="text-xl text-gray-600 font-semibold mb-6">Related Products</h2>
            
             <div class="flex overflow-x-scroll gap-5 py-5">
                 @foreach ($product['relatedProducts'] as $relatedProduct)
